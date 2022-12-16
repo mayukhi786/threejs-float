@@ -12,7 +12,6 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.x = farDist * -2;
 camera.position.z = 500;
-
 const canvas = document.querySelector(".webgl");
 const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setClearColor("#000000");
@@ -29,14 +28,12 @@ for (let i = 0; i < 350; i++) {
     const dist = farDist / 3;
     const distDouble = dist * 2;
     const tau = 2 * Math.PI; // One turn
-
     mesh.position.x = Math.random() * distDouble - dist;
     mesh.position.y = Math.random() * distDouble - dist;
     mesh.position.z = Math.random() * distDouble - dist;
     mesh.rotation.x = Math.random() * tau;
     mesh.rotation.y = Math.random() * tau;
     mesh.rotation.z = Math.random() * tau;
-
     // Manually control when 3D transformations recalculation occurs for better performance
     mesh.matrixAutoUpdate = false;
     mesh.updateMatrix();
@@ -71,7 +68,6 @@ document.addEventListener("touchmove", mouseFX.onTouchMove, false);
 // RENDER 3D GRAPHIC
 const render = () => {
     requestAnimationFrame(render);
-
     // Camera animation
     // Works with onMouseMove and onTouchMove functions
     camera.position.x += (mouseX - camera.position.x) * 0.05;
@@ -85,13 +81,9 @@ const render = () => {
     group.rotation.x = rx;
     group.rotation.y = ry;
     group.rotation.z = rz;
-
-
     renderer.render(scene, camera);
 };
 render();
-
-
 
 //resize
 const sizes = {
